@@ -1,4 +1,5 @@
 import streams from '../server/streams';
+import history from '../history';
 import { 
     CREATE_STREAM,
     FETCH_STREAM,
@@ -11,6 +12,9 @@ export const createStream = (formValues) => {
     return async (dispatch) => {
         const response = await streams.post('/streams', formValues);
         dispatch({ type: CREATE_STREAM, payload: response.data });
+        if (response.status === 200) {
+            history.push('/');
+        }
     };
 };
 
@@ -28,10 +32,13 @@ export const fetchStreams = () => {
     };
 };
 
-export const editStream = (streamId) => {
+export const editStream = (streamId, formValues) => {
     return async (dispatch) => {
-        const response = await streams.patch(`/streams/${streamId}`);
-        dispatch({ type: EDIT_STREAM, payload: response.data });
+        const response = await streams.patch(`/streams/${streamId}`, formValues);
+        // dispatch({ type: EDIT_STREAM, payload: response.data });
+        if (response.status === 200) {
+            history.push('/');
+        }
     };
 };
 
