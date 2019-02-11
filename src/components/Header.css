@@ -5,8 +5,7 @@ header img {
 
 body {
     height: 125vh;
-    /* background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg'); */
-    background-color: purple;
+    background-color: #F0F0F0;
     background-size: cover;
     font-family: sans-serif;
     margin-top: 80px;
@@ -18,15 +17,14 @@ main {
 }
 
 header {
-    background-color: white;
+    background-color: #F0F0F0;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 80px;
+    height: 50px;
     display: flex;
     align-items: center;
-    box-shadow: 0 0 25px 0 black;
     margin-bottom: 80px;
     z-index: 1;
 }

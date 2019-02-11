@@ -4,27 +4,12 @@ import { Link } from 'react-router-dom';
 
 const Card = (props) => {
     return (
-        <Link to={`/streams/show/${props.stream.id}`}>
-            <div class="card" data-effect="zoom">
-                <button class="card__save  js-save" type="button">
-                    <i class="fa fa-bookmark"></i>
-                </button>
-                <figure  class="card__image">
-                    <img src="https://c1.staticflickr.com/4/3935/32253842574_d3d449ab86_c.jpg" alt="Short description"/>
-                </figure>
-                <div class="card__header">
-                    <figure class="card__profile">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Neil_Armstrong.jpg" alt="Short description"/>
-                    </figure>
-                </div>
-                <div class="card__body">
-                    <h3 class="card__name">Neil Armstrong</h3>
-                    <p class="card__job">{props.stream.title}</p>
-                    <p class="card__bio">{props.stream.description}</p>
-                </div>
-                    <div class="card__footer">
-                    <p class="card__date">Feb 10 2018</p>
-                    <p class=""></p>
+        <Link to={`/streams/show/${props.stream.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+            <div className="card">
+                <img style={{width:'100%'}}src="https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1423&q=80"></img>
+                <div class="container">
+                    <h4><b>{props.stream.title}</b></h4> 
+                    <p>{props.stream.description}</p> 
                 </div>
             </div>
         </Link>
