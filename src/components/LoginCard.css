@@ -1,0 +1,38 @@
+.logincard {
+    /* Add shadows to create the "card" effect */
+    transition: 0.3s;
+    margin: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: #312C37;
+    padding: 10px;
+    background-color: #312C37;
+  }
+
+button {
+    background-color: #6441a5;
+    height: 30px;
+    width: 100px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: #6441a5;
+    color: white;
+    font-size: 15px;
+    margin-left: 20%;
+    margin-top: 10px;
+}
+
+/* Add some padding inside the card container */
+.container-title {
+    padding: 2px 16px;
+    color: white;
+    text-align: center;
+}
+
+.container-description {
+    font-size: 15px;
+    color: lightgray;
+    text-align: center;
+}

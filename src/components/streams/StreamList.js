@@ -15,8 +15,6 @@ class StreamList extends React.Component {
             return (
                 <div className="single">
                     <Card stream={stream}/>
-                    {/* <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"/>
-                    <Link to={`/streams/show/${stream.id}`}>{stream.title}</Link> */}
                 </div>
             );
         });
@@ -26,6 +24,7 @@ class StreamList extends React.Component {
     render() {
         return (
             <div>
+                <h2 className="title">All Stream</h2>
                 {this.renderList()}
             </div>
         );

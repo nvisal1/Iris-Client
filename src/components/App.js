@@ -9,6 +9,11 @@ import Header from './Header';
 import history from '../history';
 import Sidebar from './Sidebar';
 import './App.css'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faIgloo } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faIgloo)
 
 const App = () => {
     return (

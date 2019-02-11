@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <header>
-           <img src="https://codetheweb.blog/assets/img/icon2.png"></img>
             <nav>
                 <ul>
                     <li><Link to="/">Home</Link></li>

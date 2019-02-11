@@ -3,21 +3,13 @@ header img {
     margin-left: 40px;
 }
 
-body {
-    height: 125vh;
-    background-color: #F0F0F0;
-    background-size: cover;
-    font-family: sans-serif;
-    margin-top: 80px;
-    padding: 30px;
-}
 
 main {
     color: white;
 }
 
 header {
-    background-color: #F0F0F0;
+    background-color: #080808;
     position: fixed;
     top: 0;
     left: 0;
@@ -27,6 +19,7 @@ header {
     align-items: center;
     margin-bottom: 80px;
     z-index: 1;
+    margin-left: 235px;
 }
 
 header * {
@@ -38,6 +31,6 @@ header li {
 }
 
 header li a {
-    color: black;
+    color: white;
     text-decoration: none;
 }

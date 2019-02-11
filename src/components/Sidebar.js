@@ -1,14 +1,15 @@
 import React from 'react';
 import './Sidebar.css'
 import { Link } from 'react-router-dom';
+import LoginCard from './LoginCard';
 
 const Sidebar = () => {
     return (
         <div class="sidenav">
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
+            <div className="logo">
+                <b>IRIS</b>
+            </div>
+            <LoginCard />
         </div>
     )
 }
