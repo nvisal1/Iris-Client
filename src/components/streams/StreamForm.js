@@ -30,6 +30,7 @@ class StreamForm extends React.Component {
             <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
                 <Field name="title" component={this.renderInput} label="Entter Title"/>
                 <Field name="description" component={this.renderInput} label="Enter Description" />
+                <Field name="thumbnail" component={this.renderInput} label="Thumbnail URL" />
                 <button>Submit</button>
             </form>
         );
@@ -45,6 +46,10 @@ const validate = (formValues) => {
 
     if (!formValues.description) {
         errors.description = 'Please enter a description.';
+    }
+
+    if (!formValues.thumbnail) {
+        errors.description = 'Please provide a thumbnail.';
     }
 
     return errors;
