@@ -6,10 +6,9 @@ const Header = () => {
     return (
         <header>
             <nav>
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/streams/new">Create New Stream</Link></li>
-                </ul>
+                <Link className="logo" to="/">IRIS</Link>
+                <input placeholder="Search"></input>
+                <img className="profile" src="https://images.unsplash.com/photo-1457449940276-e8deed18bfff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"></img>
             </nav>
         </header>
     );

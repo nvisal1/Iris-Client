@@ -1,15 +1,7 @@
-header img {
-    height: 80px;
-    margin-left: 40px;
-}
-
-
-main {
-    color: white;
-}
+@import url('https://fonts.googleapis.com/css?family=Exo+2');
 
 header {
-    background-color: #080808;
+    background-color: #36FBCB;
     position: fixed;
     top: 0;
     left: 0;
@@ -17,20 +9,48 @@ header {
     height: 50px;
     display: flex;
     align-items: center;
-    margin-bottom: 80px;
     z-index: 1;
-    margin-left: 235px;
 }
 
-header * {
-    display: inline;
+nav {
+    padding: 10px;
+    display: grid;
+    grid-template-areas: 
+        "logo search profile";
+    grid-template-columns: 300px auto;
+    grid-gap: 100px;
+    justify-content: center;
+    align-items: center;
 }
 
-header li {
-    margin: 20px;
-}
-
-header li a {
+.logo {
+    grid-area: logo;
     color: white;
     text-decoration: none;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 40px;
+    margin-left: 130px;
+    display: flex;
+    flex-direction: column;
+}
+
+header input {
+    grid-area: search;
+    color: black;
+    text-decoration: none;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 12px;
+    border: none;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    padding-left: 10px;
+}
+
+.profile {
+    grid-area: profile;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
 }
