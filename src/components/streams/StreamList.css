@@ -1,12 +1,25 @@
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
     margin: auto;
     width: 80%;
     padding: 15px;
+    grid-gap: 40px;
 }
 
 .title {
     margin-left: 165px;
     color: white;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 55px;
+    opacity: 0.3;
+}
+
+.gradient {
+    width: 45%;
+    background-image:
+    radial-gradient(
+    #36FBCB,
+    black 40%
+    );
 }

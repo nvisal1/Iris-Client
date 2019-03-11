@@ -4,8 +4,6 @@ body {
     font-family: sans-serif;
     margin-top: 80px;
     padding: 30px;
+    background-color: black;
 }
 
-.content {
-    margin-left: 235px;
-}
