@@ -1,13 +1,13 @@
 import React from 'react';
-import './Card.css'
+import './TeamCard.css'
 import { Link } from 'react-router-dom';
 
-const Card = (props) => {
+const TeamCard = (props) => {
     return (
         <Link to={`/streams/show/${props.stream.id}`} style={{ textDecoration: 'none', color: 'black' }}>
-            <div className="card">
+            <div className="team-card">
                 <img style={{width:'100%'}}src={props.stream.thumbnail}></img>
-                <div class="container">
+                <div class="team-card__container">
                     <h4><b>{props.stream.title}</b></h4> 
                 </div>
             </div>
@@ -15,4 +15,4 @@ const Card = (props) => {
     );
 }
 
-export default Card;
+export default TeamCard;

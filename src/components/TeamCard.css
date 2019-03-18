@@ -1,15 +1,15 @@
-.card {
+.team-card {
   position: relative;
   width: 350px;
   transition: transform .2s;
   background: black;
 }
 
-.card img {
+.team-card img {
   border-radius: 10px;
 }
 
-.card .container {
+.team-card .team-card__container {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -22,6 +22,6 @@
   padding-left: 10px;
 }
 
-.card:hover {
+.team-card:hover {
   transform: scale(1.1);
 }
