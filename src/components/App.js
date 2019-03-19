@@ -5,7 +5,7 @@ import StreamCreate from './streams/StreamCreate';
 import StreamEdit from './streams/StreamEdit';
 import StreamDelete from './streams/StreamDelete';
 import StreamShow from './streams/StreamShow';
-import Login from './auth/Login';
+import Auth from './auth/Auth';
 import Header from './Header';
 import history from '../history';
 import { BrowserRouter, Switch } from 'react-router-dom';
@@ -13,9 +13,7 @@ import './App.css'
 
 const App = () => {
     const LoginContainer = () => (
-        <div className="content">
-          <Route path="/login" component={Login} />
-        </div>
+          <Route path="/login" component={Auth} />
     )
     
     const DefaultContainer = () => (

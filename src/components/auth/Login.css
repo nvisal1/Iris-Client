@@ -1,4 +1,93 @@
+button {
+    border: none;
+}
+
+input, label {
+    display:block;
+}
+
+input:focus {
+    outline: none;
+}
+
+button:focus {
+    outline: none;
+}
+
 .login {
-    background-color: white;
+    top: 0;
+    left: 0;
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    background: url("../background.jpeg") no-repeat center center fixed; 
+}
+
+.login-background-overlay {
+    opacity: 0.6;
+    min-height: 1000px;
+
+    background-image: -webkit-linear-gradient(-30deg, #108A6D 50%, black 50%);
+
+}
+
+.login__form {
+    top: 0;
+    right: 0;
+    position: absolute;
+    margin-top: 150px;
+    margin-right: 100px;
+}   
+
+.form__element-container {
+    margin-top: 30px;
+}
+
+.element-container__header {
     color: white;
+    margin: 0;
+    font-size: 55px;
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.element-container__button-container {
+    text-align: center;
+}
+
+.element-container__alt-text-container {
+    text-align: center;
+}
+
+.label-input-container__input-label {
+    color: #36FBCB;
+    font-size: 18px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.label-input-container__input {
+    width: 407px;
+    height: 30px;
+}
+
+.button-container__button {
+    color: white;
+    width: 180px;
+    height: 54px;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+    background-color:#36FBCB;
+}
+
+.button-container__button:hover {
+    color: #36FBCB;
+    cursor: pointer;
+    background-color:white;
+}
+
+.alt-text-container__text {
+    color: white;
+    font-size: 18px;
+    font-family: 'Exo 2', sans-serif;
 }

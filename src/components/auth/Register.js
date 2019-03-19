@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './Login.css'
+import './Register.css'
 
-class Login extends React.Component {
+class Register extends React.Component {
 
     onSubmit = formValues => {
         this.props.createStream(formValues);
@@ -22,18 +22,30 @@ class Login extends React.Component {
                 </div>
                 <div className="form__element-container">
                     <div className="element-container__label-input-container">
+                        <label className="label-input-container__input-label" for="email">Email</label>
+                        <input className="label-input-container__input" id="email"></input>
+                    </div>
+                </div>
+                <div className="form__element-container">
+                    <div className="element-container__label-input-container">
                         <label className="label-input-container__input-label" for="password">Password</label>
                         <input className="label-input-container__input" id="password"></input>
                     </div>
                 </div>  
                 <div className="form__element-container">
+                    <div className="element-container__label-input-container">
+                        <label className="label-input-container__input-label" for="password-confirmation">Password Confirmation</label>
+                        <input className="label-input-container__input" id="password-confirmation"></input>
+                    </div>
+                </div> 
+                <div className="form__element-container">
                     <div className="element-container__button-container">
-                        <button className="button-container__button">Login</button>
+                        <button className="button-container__button">Join!</button>
                     </div>
                 </div>
                 <div className="form__element-container">
                     <div className="element-container__alt-text-container">
-                        <div className="alt-text-container__text">or Register</div>
+                        <div className="alt-text-container__text">or Login</div>
                     </div>
                 </div>
             </div>  
@@ -41,4 +53,4 @@ class Login extends React.Component {
     }
 }
 
-export default connect(null, { })(Login);
+export default connect(null, { })(Register);
