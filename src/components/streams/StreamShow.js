@@ -2,6 +2,7 @@ import React from 'react';
 import flv from 'flv.js';
 import { connect } from 'react-redux';
 import { fetchStream } from '../../actions'; 
+import './StreamShow.css';
 
 class StreamShow extends React.Component {
 
@@ -28,8 +29,6 @@ class StreamShow extends React.Component {
             return;
         }
 
-        console.log(this.props.stream.value.streamKey);
-
         this.player = flv.createPlayer({
             type: 'flv',
             url: `http://localhost:8000/live/${this.props.stream.value.streamKey}.flv`
@@ -43,10 +42,25 @@ class StreamShow extends React.Component {
             return <div>Loading...</div>
         }
         return (
-            <div>
-                <video ref={this.videoRef} style={{ width: '100%' }} controls/>
-                <h1>{this.props.stream.value.title}</h1>
-                <h3>{this.props.stream.value.description}</h3>
+            <div className="stream-view">
+                <div>
+                    <video className="stream-view__main-video-player" preload="none" ref={this.videoRef} controls/>
+                </div>
+                <div className="stream-view__side-video-player-container">
+                    <div>
+                        <video className="side-video-player-container__side-video-player-one"  preload="none" ref={this.videoRef} controls/>    
+                    </div>
+                    <div>
+                        <video className="side-video-player-container__side-video-player-two"  preload="none" ref={this.videoRef} controls/>    
+                    </div>
+                    <div>
+                        <video className="side-video-player-container__side-video-player-three"  preload="none" ref={this.videoRef} controls/>    
+                    </div>
+                </div>
+                <div className="stream-view__meta-data">
+                    <h1 className="stream-view__title">{this.props.stream.value.title}</h1>
+                    <h3 className="stream-view__description">{this.props.stream.value.description}</h3>
+                </div>
             </div>
 
         );
