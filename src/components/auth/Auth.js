@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Login from './Login';
 import Register from './Register';
-import './Login.css'
+import './Auth.css'
 
 class Auth extends React.Component {
 

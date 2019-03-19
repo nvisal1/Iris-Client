@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './Register.css'
+import './Auth.css'
 
 class Register extends React.Component {
 
