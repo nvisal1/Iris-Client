@@ -1,0 +1,32 @@
+.cirlce-button-container {
+    padding-bottom: 30px;
+    margin-bottom: 40px;
+    margin-right: 40px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.cirlce-button-container__button {
+    color: white;
+    background-color: #36FBCB;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 64px;
+    height: 70px;
+    width: 70px;
+}
+
+.cirlce-button-container__button:hover {
+    color: #36FBCB;
+    cursor: pointer;
+    background-color:white;
+  }
+
+.button__text {
+    margin-bottom: 10px;
+}
+
