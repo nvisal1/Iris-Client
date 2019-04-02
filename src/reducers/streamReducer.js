@@ -3,9 +3,11 @@ import {
     FETCH_STREAM,
     FETCH_STREAMS,
     DELETE_STREAM,
-    EDIT_STREAM
+    EDIT_STREAM,
+    REGISTER
 } from '../actions/types';
 import _ from 'lodash';
+import Register from '../components/auth/Register';
 
 export default (state = {}, action) => {
     switch(action.type) {
@@ -19,6 +21,8 @@ export default (state = {}, action) => {
             return _.omit(state, action.payload);
         case EDIT_STREAM: 
             return { ...state, [action.payload.id]: action.payload};
+        case REGISTER: 
+            // return { ...state, [action.payload.id]: action.payload};
         default:
             return state;
     }

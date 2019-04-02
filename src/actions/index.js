@@ -5,8 +5,10 @@ import {
     FETCH_STREAM,
     FETCH_STREAMS,
     DELETE_STREAM,
-    EDIT_STREAM  
+    EDIT_STREAM,
+    REGISTER 
 } from './types';
+import Register from '../components/auth/Register';
 
 export const createStream = (formValues) => {
     return async (dispatch) => {
@@ -48,3 +50,11 @@ export const deleteStream = (streamId) => {
         dispatch({ type: DELETE_STREAM, payload: response.data });
     };
 };
+
+export const register = (user) => {
+    return async (dispatch) => {
+        const response = await streams.post('/users', user);
+        console.log(response);
+        dispatch({ type: REGISTER, payload: response.data });
+    }
+}

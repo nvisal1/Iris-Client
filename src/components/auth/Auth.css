@@ -59,6 +59,10 @@ button:focus {
     text-align: center;
 }
 
+.element-container__error {
+    color: red;
+}
+
 .label-input-container__input-label {
     color: #36FBCB;
     font-size: 18px;

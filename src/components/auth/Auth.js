@@ -2,22 +2,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Login from './Login';
 import Register from './Register';
+import { register } from '../../actions/index';
 import './Auth.css'
 
 class Auth extends React.Component {
 
     onSubmit = formValues => {
-        this.props.createStream(formValues);
+        this.props.register(formValues);
+        this.props.history.push('/');
     }
 
     render() {
         return (
             <div className="login">
                 <div className="login-background-overlay"></div>
-               <Register></Register>
+               <Register onSubmit={this.onSubmit}></Register>
             </div>
         );
     }
 }
 
-export default connect(null, { })(Auth);
+export default connect(null, {register})(Auth);

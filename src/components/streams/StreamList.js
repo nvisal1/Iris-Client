@@ -13,6 +13,7 @@ class StreamList extends React.Component {
 
     renderTeamList() {
         const cards = this.props.streams.map(stream => {
+            console.log('stream', stream);
             return (
                 <div className="single">
                     <TeamCard stream={stream}/>
