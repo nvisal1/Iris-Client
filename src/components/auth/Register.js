@@ -6,7 +6,6 @@ class Register extends React.Component {
 
     onSubmit = formValues => {
         const {passwordConfirmation, ...values} = formValues;
-        console.log(values);
         this.props.onSubmit(values);
     }
 

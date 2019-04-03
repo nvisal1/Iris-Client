@@ -1,0 +1,43 @@
+input, label {
+    display:block;
+}
+
+.form-element__error {
+    color: red;
+}
+
+.form-element__input-label {
+    color: #36FBCB;
+    font-size: 18px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.form-element__input {
+    width: 407px;
+    height: 30px;
+}
+
+.form__element {
+    margin-top: 30px;
+}
+
+.button-element {
+    margin-top:  30px;
+    text-align: right;
+}
+
+.button-element__button {
+    color: white;
+    width: 180px;
+    height: 54px;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+    background-color:#36FBCB;
+}
+
+.button-element__button:hover {
+    color: #36FBCB;
+    cursor: pointer;
+    background-color:white;
+}

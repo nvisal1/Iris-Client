@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStream } from '../../actions/index';
 import StreamForm from './StreamForm';
+import './StreamCreate.css'
 
 class StreamCreate extends React.Component {
 
@@ -11,9 +12,11 @@ class StreamCreate extends React.Component {
 
     render() {
         return (
-            <div>
-                <h3>Create Stream</h3>
-                <StreamForm onSubmit={this.onSubmit} />
+            <div className="container">
+                <div className="container__content">
+                    <div className="content__title">Create Stream</div>
+                    <StreamForm onSubmit={this.onSubmit} />
+                </div>
             </div>
         );
     }

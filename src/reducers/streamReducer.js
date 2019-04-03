@@ -21,8 +21,6 @@ export default (state = {}, action) => {
             return _.omit(state, action.payload);
         case EDIT_STREAM: 
             return { ...state, [action.payload.id]: action.payload};
-        case REGISTER: 
-            // return { ...state, [action.payload.id]: action.payload};
         default:
             return state;
     }

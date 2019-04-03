@@ -5,5 +5,6 @@ import streamReducer from './streamReducer';
 
 export default combineReducers({
     form: formReducer,
-    streams: streamReducer
+    streams: streamReducer,
+    auth: authReducer,
 });

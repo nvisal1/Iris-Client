@@ -1,21 +1,24 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import './StreamForm.css';
 
 class StreamForm extends React.Component {
 
     renderError(meta) {
-        return (
-            <div>
-                {meta.error}
-            </div>
-        );
+        if (meta.visited) {
+            return (
+                <div className="form-element__error">
+                    {meta.error}
+                </div>
+            );
+        }
     }
 
     renderInput = ({input, label, meta}) => {
         return (
-            <div>
-                <label>{label}</label>
-                <input {...input}/>
+            <div className="form__element">
+                <label className="form-element__input-label">{label}</label>
+                <input className="form-element__input" {...input}/>
                 {this.renderError(meta)}
             </div>
         );
@@ -31,7 +34,9 @@ class StreamForm extends React.Component {
                 <Field name="title" component={this.renderInput} label="Enter Title"/>
                 <Field name="description" component={this.renderInput} label="Enter Description" />
                 <Field name="thumbnail" component={this.renderInput} label="Thumbnail URL" />
-                <button>Submit</button>
+                <div className="button-element">
+                    <button className="button-element__button">Submit</button>
+                </div> 
             </form>
         );
     }
@@ -49,7 +54,7 @@ const validate = (formValues) => {
     }
 
     if (!formValues.thumbnail) {
-        errors.description = 'Please provide a thumbnail.';
+        errors.thumbnail = 'Please provide a thumbnail.';
     }
 
     return errors;

@@ -4,3 +4,6 @@ export const FETCH_STREAM = 'FETCH_STREAM';
 export const DELETE_STREAM = 'DELETE_STREAM';
 export const EDIT_STREAM = 'EDIT_STREAM';
 export const REGISTER = 'REGISTER';
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
+export const GETUSER = 'GETUSER';

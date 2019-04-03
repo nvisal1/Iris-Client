@@ -6,21 +6,21 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    height: 50px;
     display: flex;
     align-items: center;
     z-index: 1;
 }
 
 nav {
-    padding: 10px;
-    display: grid;
-    grid-template-areas: 
-        "logo search profile";
-    grid-template-columns: 300px auto;
-    grid-gap: 100px;
-    justify-content: center;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 1620px;
+    margin: auto;
 }
 
 .logo {
@@ -29,7 +29,6 @@ nav {
     text-decoration: none;
     font-family: 'Exo 2', sans-serif;
     font-size: 40px;
-    margin-left: 130px;
     display: flex;
     flex-direction: column;
 }
@@ -44,13 +43,21 @@ header input {
     height: 30px;
     display: flex;
     flex-direction: column;
-    width: 800px;
+    width: 70%;
     padding-left: 10px;
 }
 
 .profile {
     grid-area: profile;
-    height: 30px;
-    width: 30px;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
+}
+
+.login-text {
+    color: white;
+    text-decoration: none;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 40px;
+    margin-right: 10px;
 }

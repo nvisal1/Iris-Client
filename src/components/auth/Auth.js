@@ -9,14 +9,13 @@ class Auth extends React.Component {
 
     onSubmit = formValues => {
         this.props.register(formValues);
-        this.props.history.push('/');
     }
 
     render() {
         return (
             <div className="login">
                 <div className="login-background-overlay"></div>
-               <Register onSubmit={this.onSubmit}></Register>
+                <Register onSubmit={this.onSubmit}></Register>
             </div>
         );
     }

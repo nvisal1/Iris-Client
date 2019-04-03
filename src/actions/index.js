@@ -6,9 +6,10 @@ import {
     FETCH_STREAMS,
     DELETE_STREAM,
     EDIT_STREAM,
-    REGISTER 
+    REGISTER,
+    LOGIN,
+    GETUSER
 } from './types';
-import Register from '../components/auth/Register';
 
 export const createStream = (formValues) => {
     return async (dispatch) => {
@@ -38,9 +39,7 @@ export const editStream = (streamId, formValues) => {
     return async (dispatch) => {
         const response = await streams.patch(`/streams/${streamId}`, formValues);
         // dispatch({ type: EDIT_STREAM, payload: response.data });
-        if (response.status === 200) {
-            history.push('/');
-        }
+         
     };
 };
 
@@ -54,7 +53,27 @@ export const deleteStream = (streamId) => {
 export const register = (user) => {
     return async (dispatch) => {
         const response = await streams.post('/users', user);
+        dispatch({ type: REGISTER, payload: response.data.token });
         console.log(response);
-        dispatch({ type: REGISTER, payload: response.data });
+        if (response.status === 200) {
+            history.push('/');
+        }
     }
+}
+
+export const signIn = (loginInfo) => {
+    return async (dispatch) => {
+        const response = await streams.post('/users/login', loginInfo);
+        dispatch({ type: LOGIN, payload: response.data.token });
+    }
+}
+
+export const signOut = () => {
+    
+}
+
+export const getUser = () => {
+    return {
+        type: GETUSER
+    };
 }

@@ -9,7 +9,7 @@ import StreamManage from './streams/StreamManage';
 import Auth from './auth/Auth';
 import Header from './Header';
 import history from '../history';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { Router, Switch } from 'react-router-dom';
 import './App.css'
 
 const App = () => {
@@ -31,12 +31,12 @@ const App = () => {
         </div>
     )
     return (
-        <BrowserRouter history={history}>
+        <Router history={history}>
             <Switch>
-                <Route exact path="/(login)" component={LoginContainer}/>
+                <Route exact path="/login" component={LoginContainer}/>
                 <Route component={DefaultContainer}/>
             </Switch>
-        </BrowserRouter>
+        </Router>
     )
 };
 
