@@ -13,8 +13,15 @@ import { Router, Switch } from 'react-router-dom';
 import './App.css'
 
 const App = () => {
-    const LoginContainer = () => (
-          <Route path="/login" component={Auth} />
+    const AuthContainer = () => (
+        <div>
+          <Route 
+            path="/login"
+            render={(props) => <Auth {...props} page='login' />} />
+          <Route 
+            path="/register"
+            render={(props) => <Auth {...props} page='register' />} />
+        </div>
     )
     
     const DefaultContainer = () => (
@@ -33,8 +40,9 @@ const App = () => {
     return (
         <Router history={history}>
             <Switch>
-                <Route exact path="/login" component={LoginContainer}/>
-                <Route component={DefaultContainer}/>
+                <Route exact path="/login" component={AuthContainer}/>
+                <Route exact path="/register" component={AuthContainer}/>
+                <Route component={DefaultContainer} />
             </Switch>
         </Router>
     )

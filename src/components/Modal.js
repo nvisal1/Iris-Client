@@ -3,16 +3,19 @@ import ReactDOM from 'react-dom';
 import StreamCreate from './streams/StreamCreate';
 import './Modal.css'
 
-const Modal = props => {
-    return ReactDOM.createPortal(
-        <div className="modal-container">
-            <div className="modal">
-                <StreamCreate />
+const Modal = props => 
+    props.open
+        ? ReactDOM.createPortal(
+            <div className="modal-container">
+                <div className="modal">
+                    <div onClick={props.close} className="modal__exit">x</div>
+                    <StreamCreate />
+                </div>
             </div>
-        </div>
-        ,
-        document.querySelector('#modal')
-    );
-}
+            ,
+            document.querySelector('#modal')
+        )
+        : null
+
 
 export default Modal;

@@ -31,6 +31,11 @@ nav {
     font-size: 40px;
     display: flex;
     flex-direction: column;
+    transition: transform .2s;
+}
+
+.logo:hover {
+    transform: scale(1.1);
 }
 
 header input {
@@ -48,10 +53,13 @@ header input {
 }
 
 .profile {
-    grid-area: profile;
     height: 45px;
     width: 45px;
     border-radius: 50%;
+    transition: transform .2s;
+}
+.profile:hover {
+    transform: scale(1.1);
 }
 
 .login-text {
@@ -61,3 +69,28 @@ header input {
     font-size: 40px;
     margin-right: 10px;
 }
+
+.login-container {
+    display: flex;
+}
+
+.login-container__logout-button-container {
+    flex-direction: column;
+    margin: auto;
+    margin-left: 20px;
+}
+
+.logout-button-container__button {
+    background-color: white ;
+    color: #36FBCB;
+    height: 30px;
+    width: 80px;
+    cursor: pointer;
+}
+
+.logout-button-container__button:hover {
+    background-color: #36FBCB;
+    color: white;
+}
+
+

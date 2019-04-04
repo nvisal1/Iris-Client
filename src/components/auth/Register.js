@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom';
 import './Auth.css'
 
 class Register extends React.Component {
@@ -48,7 +49,7 @@ class Register extends React.Component {
                 </div>
                 <div className="form__element-container">
                     <div className="element-container__alt-text-container">
-                        <div className="alt-text-container__text">or Login</div>
+                        <Link to='/login' className="alt-text-container__text">or Login</Link>
                     </div>
                 </div>
             </form>  
@@ -80,5 +81,5 @@ const validate = (formValues) => {
 
 export default reduxForm({
     form: 'register',
-    validate
+    validate,
 }) (Register);

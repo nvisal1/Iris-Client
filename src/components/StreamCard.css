@@ -2,12 +2,11 @@
   position: relative;
   width: 200px;
   transition: transform .2s;
-  background: black;
 }
 
 .stream-card .stream-card__container {
   position: absolute;
-  bottom: 0;
+  bottom: 3px;
   left: 0;
   width: 100%;
   height: 30%;
@@ -15,6 +14,16 @@
   color: #FFF;
   display: block;
   background: rgba(0, 0, 0, .6);
-  padding-left: 10px;
-  padding-bottom: 10px;
+  border-radius: 0 0 10px 10px;
+}
+
+.stream-card img {
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.stream-card__container h4 {
+  margin-left: 10px;
+  margin-bottom: 10px;
 }

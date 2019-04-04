@@ -6,7 +6,11 @@ export const storeToken = (token) => {
 
 export const getToken = () => {
     const token = localStorage.getItem('TOKEN');
-    return decode(token).user;
+    if(token) {
+        return decode(token).user;
+    }
+    return null;
+  
 }
 
 export const decodeToken = (token) => {

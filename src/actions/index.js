@@ -8,7 +8,8 @@ import {
     EDIT_STREAM,
     REGISTER,
     LOGIN,
-    GETUSER
+    GETUSER,
+    LOGOUT
 } from './types';
 
 export const createStream = (formValues) => {
@@ -70,11 +71,14 @@ export const signIn = (loginInfo) => {
 }
 
 export const signOut = () => {
-    
+    history.push('/login');
+    return {
+        type: LOGOUT,
+    };
 }
 
 export const getUser = () => {
     return {
-        type: GETUSER
+        type: GETUSER,
     };
 }

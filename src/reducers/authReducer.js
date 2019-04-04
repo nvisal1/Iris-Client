@@ -44,12 +44,11 @@ export default (state = {}, action) => {
                 id: null,
             }
         case GETUSER:
-            console.log('reducer')
             return { 
                 ...state,
-                username: getToken().username,
-                email: getToken().email,
-                id: getToken()._id,
+                username: getToken() ? getToken().username : null,
+                email: getToken() ? getToken().email : null,
+                id: getToken() ? getToken()._id : null,
             }
         default: 
             return state;

@@ -1,11 +1,34 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import './Auth.css'
+import { Link } from 'react-router-dom';
+import { Field, reduxForm } from 'redux-form';
 
 class Login extends React.Component {
 
     onSubmit = formValues => {
-        this.props.createStream(formValues);
+        this.props.onSubmit(formValues);
+    }
+
+    renderError(meta) {
+        if (meta.visited) {
+            return (
+                <div className="element-container__error">
+                    {meta.error}
+                </div>
+            );
+        }
+    }
+
+    renderInput = ({input, label, meta}) => {
+        return (
+            <div className="form__element-container">
+                <div className="element-container__label-input-container">
+                    <label className="label-input-container__input-label" for={label}>{label}</label>
+                    <input {...input} name={label} className="label-input-container__input" id={label}></input>
+                </div>
+                {this.renderError(meta)}
+            </div>
+        )
     }
 
     render() {
@@ -14,18 +37,8 @@ class Login extends React.Component {
                 <div className="form__element-container">
                     <h3 className="element-container__header">IRIS</h3>
                 </div>
-                <div className="form__element-container">
-                    <div className="element-container__label-input-container">
-                        <label className="label-input-container__input-label" for="username">Username</label>
-                        <input className="label-input-container__input" id="username"></input>
-                    </div>
-                </div>
-                <div className="form__element-container">
-                    <div className="element-container__label-input-container">
-                        <label className="label-input-container__input-label" for="password">Password</label>
-                        <input className="label-input-container__input" id="password"></input>
-                    </div>
-                </div>  
+                <Field name="username" component={this.renderInput} label="Username" />
+                <Field name="password" component={this.renderInput} label="Password" />
                 <div className="form__element-container">
                     <div className="element-container__button-container">
                         <button className="button-container__button">Login</button>
@@ -33,7 +46,7 @@ class Login extends React.Component {
                 </div>
                 <div className="form__element-container">
                     <div className="element-container__alt-text-container">
-                        <div className="alt-text-container__text">or Register</div>
+                        <Link to='/register' className="alt-text-container__text">or Register</Link>
                     </div>
                 </div>
             </div>  
@@ -41,4 +54,22 @@ class Login extends React.Component {
     }
 }
 
-export default connect(null, { })(Login);
+
+const validate = (formValues) => {
+    const errors = {};
+
+    if (!formValues.username) {
+        errors.username = 'Please enter a username.';
+    }
+
+    if (!formValues.password) {
+        errors.password = 'Please provide a password.';
+    }
+
+    return errors;
+}
+
+export default reduxForm({
+    form: 'login',
+    validate,
+})(Login);

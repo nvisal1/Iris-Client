@@ -9,21 +9,35 @@ import md5 from 'md5';
 class Header extends React.Component {
 
     constructor(props) {
-        console.log('constructor')
         super(props);
         this.props.getUser();
     }
 
+    signOut = () => {
+        this.props.signOut()
+    }
+
     renderLogin() {
         return (
-            <Link to='/streams/manage'>
-                <img className="profile" src={getGravatarImage(this.props.email, 200)}></img>
-            </Link> 
-        )
+            <div className="login-container">
+                <Link to='/streams/manage'>
+                    <img className="profile" src={getGravatarImage(this.props.email, 200)}></img>
+                </Link> 
+                <div className="login-container__logout-button-container">
+                    <button onClick={this.signOut} className="logout-button-container__button">Logout</button>
+                </div>   
+            </div>
+        );
     }
 
     renderLogout() {
-        
+        return (
+            <div className="login-container">
+                <Link to='/login'>
+                    <button className="logout-button-container__button">Login</button>
+                </Link> 
+            </div>
+        );
     }
 
     render() {
@@ -52,7 +66,6 @@ class Header extends React.Component {
 }
 
 const getGravatarImage = (email, imgSize) => {
-    console.log('email', email);
     const defaultIcon = 'identicon';
     // r=pg checks the rating of the Gravatar image
     return (
@@ -66,7 +79,6 @@ const getGravatarImage = (email, imgSize) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return { 
         username: state.auth.username,
         email: state.auth.email,
