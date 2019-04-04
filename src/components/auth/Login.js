@@ -19,12 +19,18 @@ class Login extends React.Component {
         }
     }
 
-    renderInput = ({input, label, meta}) => {
+    renderInput = ({input, label, meta, type}) => {
         return (
             <div className="form__element-container">
                 <div className="element-container__label-input-container">
                     <label className="label-input-container__input-label" for={label}>{label}</label>
-                    <input {...input} name={label} className="label-input-container__input" id={label}></input>
+                    <input 
+                        {...input} 
+                        name={label} 
+                        className="label-input-container__input"
+                        id={label}
+                        type={type}
+                    ></input>
                 </div>
                 {this.renderError(meta)}
             </div>
@@ -37,8 +43,8 @@ class Login extends React.Component {
                 <div className="form__element-container">
                     <h3 className="element-container__header">IRIS</h3>
                 </div>
-                <Field name="username" component={this.renderInput} label="Username" />
-                <Field name="password" component={this.renderInput} label="Password" />
+                <Field name="username" component={this.renderInput} label="Username" type="text"/>
+                <Field name="password" component={this.renderInput} label="Password" type="password" />
                 <div className="form__element-container">
                     <div className="element-container__button-container">
                         <button className="button-container__button">Login</button>
