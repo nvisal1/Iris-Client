@@ -67,6 +67,9 @@ export const signIn = (loginInfo) => {
     return async (dispatch) => {
         const response = await streams.post('/users/login', loginInfo);
         dispatch({ type: LOGIN, payload: response.data.token });
+        if (response.status === 200) {
+            history.push('/');
+        }
     }
 }
 

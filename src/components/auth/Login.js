@@ -33,7 +33,7 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className="login__form">
+            <form className="login__form" onSubmit={this.props.handleSubmit(this.onSubmit)}>
                 <div className="form__element-container">
                     <h3 className="element-container__header">IRIS</h3>
                 </div>
@@ -49,7 +49,7 @@ class Login extends React.Component {
                         <Link to='/register' className="alt-text-container__text">or Register</Link>
                     </div>
                 </div>
-            </div>  
+            </form>  
         );
     }
 }
