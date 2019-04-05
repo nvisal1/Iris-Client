@@ -32,7 +32,6 @@ export const fetchStream = (streamId) => {
 export const fetchStreams = () => {
     return async (dispatch) => {
         const response = await streams.get('/streams');
-        console.log(response.data);
         dispatch({ type: FETCH_STREAMS, payload: response.data });
     };
 };
@@ -40,8 +39,10 @@ export const fetchStreams = () => {
 export const editStream = (streamId, formValues) => {
     return async (dispatch) => {
         const response = await streams.patch(`/streams/${streamId}`, formValues);
-        // dispatch({ type: EDIT_STREAM, payload: response.data });
-         
+        dispatch({ type: EDIT_STREAM, payload: response.data });
+        if (response.status === 200) {
+            history.push('/');
+        }
     };
 };
 
@@ -65,11 +66,21 @@ export const register = (user) => {
 
 export const signIn = (loginInfo) => {
     return async (dispatch) => {
-        const response = await streams.post('/users/login', loginInfo);
-        dispatch({ type: LOGIN, payload: response.data.token });
-        if (response.status === 200) {
-            history.push('/');
+        try {
+            const response = await streams.post('/users/login', loginInfo);
+            dispatch({ type: LOGIN, payload: response.data.token ? response.data.token : null });
+            if (response.status === 200) {
+                history.push('/');
+            }
+        } catch (error) {
+            switch (error.response.status) {
+                case 401:
+                    history.push('/login', {error: 'Username or Password is incorrect'});
+                default: 
+                    history.push('/login', {error: 'An unexpected error has occured'});
+            }
         }
+     
     }
 }
 

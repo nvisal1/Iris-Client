@@ -3,11 +3,14 @@ import { connect } from 'react-redux';
 import { fetchStreams } from '../../actions';
 import TeamCard from '../TeamCard';
 import './StreamManage.css'
-import Modal from '../Modal';
+import CreateStreamModal from '../CreateStreamModal';
+import EditStreamModal from '../EditStreamModal';
 class StreamManage extends React.Component {
 
     state = {
-        showModal: false,
+        showCreateModal: false,
+        showEditModal: false,
+        editStream: {}
     }
 
     componentDidMount() {
@@ -18,29 +21,37 @@ class StreamManage extends React.Component {
         const cards = this.props.streams.map(stream => {
             return (
                 <div className="single">
-                    <TeamCard stream={stream} isUser={true}/>
+                    <TeamCard stream={stream} isUser={true} toggleModal={this.toggleEditModal}/>
                 </div>
             );
         });
         return <div className="team-card__grid">{cards}</div>
     }
 
-    toggleModal = () => {
+    toggleCreateModal = () => {
         this.setState({
-            showModal: !this.state.showModal,
-        })
+            showCreateModal: !this.state.showCreateModal,
+        });
+    }
+
+    toggleEditModal = (stream) => {
+        this.setState({
+            showEditModal: !this.state.showEditModal,
+            editStream: stream
+        });
     }
 
     render() {
         return (
             <div>
-                <Modal open={this.state.showModal} close={this.toggleModal}/>
+                <CreateStreamModal open={this.state.showCreateModal} close={this.toggleCreateModal}/>
+                <EditStreamModal open={this.state.showEditModal} stream={this.state.editStream} close={this.toggleEditModal}/>
                 <div className="gradient">
                     <h2 className="title">Manage Streams</h2>
                 </div>
-                {this.renderUserStreamList()}l
+                {this.renderUserStreamList()}
                 <div className="cirlce-button-container">
-                    <button onClick={this.toggleModal} className="cirlce-button-container__button">
+                    <button onClick={this.toggleCreateModal} className="cirlce-button-container__button">
                         <div className="button__text">+</div>
                     </button>
                 </div>

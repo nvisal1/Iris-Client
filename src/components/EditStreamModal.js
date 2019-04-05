@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import StreamCreate from './streams/StreamCreate';
-import './Modal.css'
+import StreamEdit from './streams/StreamEdit';
+import './Modal.css';
 
-const Modal = props => 
+const EditStreamModal = props => 
     props.open
         ? ReactDOM.createPortal(
             <div className="modal-container">
                 <div className="modal">
                     <div onClick={props.close} className="modal__exit">x</div>
-                    <StreamCreate />
+                    <StreamEdit stream={props.stream}/>
                 </div>
             </div>
             ,
@@ -17,5 +17,4 @@ const Modal = props =>
         )
         : null
 
-
-export default Modal;
+export default EditStreamModal;

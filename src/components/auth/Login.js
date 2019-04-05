@@ -43,6 +43,9 @@ class Login extends React.Component {
                 <div className="form__element-container">
                     <h3 className="element-container__header">IRIS</h3>
                 </div>
+                <div className="element-container__error">
+                    {this.props.error}
+                </div>
                 <Field name="username" component={this.renderInput} label="Username" type="text"/>
                 <Field name="password" component={this.renderInput} label="Password" type="password" />
                 <div className="form__element-container">
@@ -59,7 +62,6 @@ class Login extends React.Component {
         );
     }
 }
-
 
 const validate = (formValues) => {
     const errors = {};

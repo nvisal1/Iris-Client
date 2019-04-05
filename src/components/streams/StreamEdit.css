@@ -1,0 +1,19 @@
+.container {
+    background-color: white;
+    border-radius: 5px;
+    width: 700px;
+    height: 600px;
+}
+
+.container__content {
+    margin: auto;
+    width: 50%;
+    padding: 20px;
+}
+
+.content__title {
+    margin-bottom: 10px;
+    font-size: 55px;
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+}

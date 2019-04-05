@@ -17,7 +17,7 @@ const INITIAL_STATE = {
     id: null
 };  
 
-export default (state = {}, action) => {
+export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case REGISTER:
             storeToken(action.payload);
@@ -28,12 +28,18 @@ export default (state = {}, action) => {
                 id: decodeToken(action.payload)._id,
             }
         case LOGIN: 
-            storeToken(action.payload);
-            return {
-                ...state,
-                username: decodeToken(action.payload).username,
-                email: decodeToken(action.payload).email,
-                id: decodeToken(action.payload)._id,
+            if (action.payload) {
+                storeToken(action.payload);
+                return {
+                    ...state,
+                    username: decodeToken(action.payload).username,
+                    email: decodeToken(action.payload).email,
+                    id: decodeToken(action.payload)._id,
+                }
+            } else {
+                return {
+                    ...state,
+                }
             }
         case LOGOUT: 
             removeToken();
