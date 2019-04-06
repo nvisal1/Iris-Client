@@ -23,3 +23,54 @@
     font-size: 20px;
     cursor: pointer;
 }
+
+.modal__background {
+    background-color: white;
+    border-radius: 5px;
+    width: 700px;
+    height: 600px;
+}
+
+.modal__content {
+    margin: auto;
+    width: 50%;
+    padding: 20px;
+}
+
+.content__title {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 55px;
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.content__text {
+    color: red;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.content__delete-button-container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.delete-button-container__delete-button {
+    color: white;
+    width: 180px;
+    height: 54px;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+    background-color:red;
+}
+
+.delete-button-container__delete-button:hover {
+    color: red;
+    cursor: pointer;
+    background-color:white;
+}

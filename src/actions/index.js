@@ -50,6 +50,9 @@ export const deleteStream = (streamId) => {
     return async (dispatch) => {
         const response = await streams.delete(`/streams/${streamId}`);
         dispatch({ type: DELETE_STREAM, payload: response.data });
+        if (response.status === 200) {
+            history.push('/');
+        }
     };
 };
 

@@ -9,7 +9,10 @@ const TeamCard = (props) => {
                 <div className="team-card">
                     <img style={{width:'100%'}} src={props.stream.thumbnail}></img>
                     <div className="team-card__edit-button-container">
-                        <button onClick={() => props.toggleModal(props.stream)} className="edit-button-container__button">Edit</button>
+                        <button onClick={() => props.toggleEditModal(props.stream)} className="edit-button-container__button">Edit</button>
+                    </div>
+                    <div className="team-card__delete-button-container">
+                        <button onClick={() => props.toggleDeleteModal(props.stream)} className="delete-button-container__button">Delete</button>
                     </div>
                     <div className="team-card__container">
                         <h4><b>{props.stream.title}</b></h4> 

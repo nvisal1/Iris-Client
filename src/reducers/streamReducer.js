@@ -18,7 +18,7 @@ export default (state = {}, action) => {
         case CREATE_STREAM: 
             return { ...state };
         case DELETE_STREAM: 
-            return _.omit(state, action.payload);
+            return _.omit(state, action.payload.id);
         case EDIT_STREAM: 
             return { ...state };
         default:

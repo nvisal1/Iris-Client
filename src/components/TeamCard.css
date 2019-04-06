@@ -43,6 +43,13 @@ button:focus {
   margin-right: 10px;
 }
 
+.team-card__delete-button-container {
+  top: 50px;
+  right: 0;
+  position: absolute;
+  margin-right: 10px;
+}
+
 .edit-button-container__button {
     color: white;
     width: 70px;
@@ -53,8 +60,24 @@ button:focus {
     background-color:#36FBCB;
 }
 
+.delete-button-container__button {
+    color: white;
+    width: 70px;
+    height: 30px;
+    font-size: 14px;
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+    background-color: red;
+}
+
 .edit-button-container__button:hover {
   color: #36FBCB;
+  cursor: pointer;
+  background-color:white;
+}
+
+.delete-button-container__button:hover {
+  color: red;
   cursor: pointer;
   background-color:white;
 }

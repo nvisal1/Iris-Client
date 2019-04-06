@@ -28,7 +28,8 @@ class StreamEdit extends React.Component {
                             description: this.props.stream.description,
                             thumbnail: this.props.stream.thumbnail,
                         }}
-                        onSubmit={this.onSubmit} />
+                        onSubmit={this.onSubmit} 
+                    />
                 </div>
             </div>
         )
