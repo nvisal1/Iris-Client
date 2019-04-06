@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchStream, editStream } from '../../actions';
 import StreamForm from './StreamForm';
+import "./StreamEdit.css";
 
 class StreamEdit extends React.Component {
     componentDidMount() {
@@ -22,6 +23,9 @@ class StreamEdit extends React.Component {
             <div className="container">
                 <div className="container__content">
                     <div className="content__title">Edit Stream</div>
+                    <div>
+                        key: <span className="content__key">{this.props.stream.streamKey}</span>
+                    </div>
                     <StreamForm 
                         initialValues={{
                             title: this.props.stream.title,

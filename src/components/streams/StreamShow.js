@@ -25,13 +25,14 @@ class StreamShow extends React.Component {
     }
 
     buildPlayer() {
+        console.log(this.props);
         if(this.player || !this.props.stream) {
             return;
         }
 
         this.player = flv.createPlayer({
             type: 'flv',
-            url: `http://localhost:8000/live/${this.props.stream.value.streamKey}.flv`
+            url: `http://localhost:8000/live/${this.props.stream.streamKey}.flv`
         });
         this.player.attachMediaElement(this.videoRef.current);
         this.player.load();
@@ -46,20 +47,9 @@ class StreamShow extends React.Component {
                 <div>
                     <video className="stream-view__main-video-player" preload="none" ref={this.videoRef} controls/>
                 </div>
-                <div className="stream-view__side-video-player-container">
-                    <div>
-                        <video className="side-video-player-container__side-video-player-one"  preload="none" ref={this.videoRef} controls/>    
-                    </div>
-                    <div>
-                        <video className="side-video-player-container__side-video-player-two"  preload="none" ref={this.videoRef} controls/>    
-                    </div>
-                    <div>
-                        <video className="side-video-player-container__side-video-player-three"  preload="none" ref={this.videoRef} controls/>    
-                    </div>
-                </div>
                 <div className="stream-view__meta-data">
-                    <h1 className="stream-view__title">{this.props.stream.value.title}</h1>
-                    <h3 className="stream-view__description">{this.props.stream.value.description}</h3>
+                    <h1 className="stream-view__title">{this.props.stream.title}</h1>
+                    <h3 className="stream-view__description">{this.props.stream.description}</h3>
                 </div>
             </div>
 
@@ -68,7 +58,7 @@ class StreamShow extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    return { stream: state.streams[ownProps.match.params.id] };
+    return { stream: state.streams[ownProps.match.params.streamId] };
 };
 
 export default connect(

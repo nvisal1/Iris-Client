@@ -38,14 +38,14 @@ nav {
     transform: scale(1.1);
 }
 
-form {
+.search-form {
     text-align: center;
     display: flex;
     flex-direction: column;
     width: 70%;
 }
 
-input {
+.search-form__search-input {
     color: black;
     text-decoration: none;
     font-family: 'Exo 2', sans-serif;

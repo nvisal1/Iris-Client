@@ -52,8 +52,12 @@ class Header extends React.Component {
                 <header>
                     <nav>
                         <Link className="logo" to="/">IRIS</Link>
-                        <form onSubmit={this.onSearchSubmit}>
-                            <input name="search" placeholder="Search"></input>
+                        <form className="search-form" onSubmit={this.onSearchSubmit}>
+                            <input 
+                                className="search-form__search-input"
+                                name="search"
+                                placeholder="Search
+                            "></input>
                         </form>
                         {this.renderLogin()}
                     </nav>
