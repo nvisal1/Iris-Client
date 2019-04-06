@@ -2,7 +2,7 @@ import React from 'react';
 import './Header.css'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { signIn, signOut, getUser } from '../actions';
+import { signIn, signOut, getUser, searchStreams } from '../actions';
 import md5 from 'md5';
 
 
@@ -15,6 +15,12 @@ class Header extends React.Component {
 
     signOut = () => {
         this.props.signOut()
+    }
+
+    onSearchSubmit = (event) => {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        this.props.searchStreams(data.get('search'));
     }
 
     renderLogin() {
@@ -46,7 +52,9 @@ class Header extends React.Component {
                 <header>
                     <nav>
                         <Link className="logo" to="/">IRIS</Link>
-                        <input placeholder="Search"></input>
+                        <form onSubmit={this.onSearchSubmit}>
+                            <input name="search" placeholder="Search"></input>
+                        </form>
                         {this.renderLogin()}
                     </nav>
                 </header>
@@ -87,5 +95,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
     mapStateToProps,
-    { signIn, signOut, getUser }
+    { signIn, signOut, getUser, searchStreams }
 )(Header);

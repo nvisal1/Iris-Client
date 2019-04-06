@@ -9,7 +9,8 @@ import {
     REGISTER,
     LOGIN,
     GETUSER,
-    LOGOUT
+    LOGOUT,
+    SEARCH_STREAMS
 } from './types';
 
 export const createStream = (formValues) => {
@@ -50,6 +51,20 @@ export const deleteStream = (streamId) => {
     return async (dispatch) => {
         const response = await streams.delete(`/streams/${streamId}`);
         dispatch({ type: DELETE_STREAM, payload: response.data });
+        if (response.status === 200) {
+            history.push('/');
+        }
+    };
+};
+
+export const searchStreams = (query) => {
+    return async (dispatch) => {
+        const response = await streams.get(`/streams`, {
+            params: {
+                text: query
+            }
+        });
+        dispatch({ type: SEARCH_STREAMS, payload: response.data });
         if (response.status === 200) {
             history.push('/');
         }

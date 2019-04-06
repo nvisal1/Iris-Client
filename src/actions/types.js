@@ -3,6 +3,7 @@ export const FETCH_STREAMS = 'FETCH_STREAMS';
 export const FETCH_STREAM = 'FETCH_STREAM';
 export const DELETE_STREAM = 'DELETE_STREAM';
 export const EDIT_STREAM = 'EDIT_STREAM';
+export const SEARCH_STREAMS = 'SEARCH_STREAMS';
 export const REGISTER = 'REGISTER';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
