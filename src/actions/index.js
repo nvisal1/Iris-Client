@@ -6,6 +6,7 @@ import {
     FETCH_STREAMS,
     DELETE_STREAM,
     EDIT_STREAM,
+    FETCH_USER_STREAMS,
     REGISTER,
     LOGIN,
     GETUSER,
@@ -67,6 +68,14 @@ export const searchStreams = (query) => {
         dispatch({ type: SEARCH_STREAMS, payload: response.data });
     };
 };
+
+export const fetchUserStreams = (userId) => {
+    return async (dispatch) => {
+        const response = await streams.get(`user/${userId}/streams`);
+        console.log(response);
+        dispatch({ type: FETCH_USER_STREAMS, payload: response.data });
+    };
+}
 
 export const register = (user) => {
     return async (dispatch) => {

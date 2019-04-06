@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchStreams, deleteStream } from '../../actions';
+import { fetchStreams, deleteStream, fetchUserStreams, getUser } from '../../actions';
 import TeamCard from '../TeamCard';
 import './StreamManage.css'
 import CreateStreamModal from '../CreateStreamModal';
@@ -16,8 +16,9 @@ class StreamManage extends React.Component {
         deleteStream: {},
     }
 
-    componentDidMount() {
-        this.props.fetchStreams();
+    async componentDidMount() {
+        await this.props.getUser();
+        this.props.fetchUserStreams(this.props.userId);
     }
 
     renderUserStreamList() {
@@ -82,7 +83,10 @@ class StreamManage extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return { streams: Object.values(state.streams) };
+    return { 
+        streams: Object.values(state.streams),
+        userId: state.auth.id
+    };
 }
 
-export default connect(mapStateToProps, { fetchStreams, deleteStream })(StreamManage);
+export default connect(mapStateToProps, { fetchStreams, deleteStream, fetchUserStreams, getUser })(StreamManage);

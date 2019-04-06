@@ -3,6 +3,7 @@ import {
     FETCH_STREAM,
     FETCH_STREAMS,
     SEARCH_STREAMS,
+    FETCH_USER_STREAMS,
     DELETE_STREAM,
     EDIT_STREAM,
     REGISTER
@@ -25,6 +26,11 @@ export default (state = {}, action) => {
             return _.omit(state, action.payload.id);
         case EDIT_STREAM: 
             return { ...state };
+        case FETCH_USER_STREAMS: 
+            console.log(action.payload);
+            state = {};
+
+            return { ...state, ..._.mapKeys(action.payload, '_id')};
         default:
             return state;
     }
