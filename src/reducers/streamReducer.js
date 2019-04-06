@@ -2,6 +2,7 @@ import {
     CREATE_STREAM,
     FETCH_STREAM,
     FETCH_STREAMS,
+    SEARCH_STREAMS,
     DELETE_STREAM,
     EDIT_STREAM,
     REGISTER
@@ -14,6 +15,9 @@ export default (state = {}, action) => {
         case FETCH_STREAM:
             return { ...state, [action.payload._id]: action.payload};
         case FETCH_STREAMS:
+            return { ...state, ..._.mapKeys(action.payload, '_id')};
+        case SEARCH_STREAMS:
+            state = {};
             return { ...state, ..._.mapKeys(action.payload, '_id')};
         case CREATE_STREAM: 
             return { ...state };

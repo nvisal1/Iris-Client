@@ -65,9 +65,6 @@ export const searchStreams = (query) => {
             }
         });
         dispatch({ type: SEARCH_STREAMS, payload: response.data });
-        if (response.status === 200) {
-            history.push('/');
-        }
     };
 };
 
