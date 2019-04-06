@@ -7,7 +7,8 @@ import './StreamCreate.css'
 class StreamCreate extends React.Component {
 
     onSubmit = formValues => {
-        this.props.createStream(formValues);
+        console.log({...formValues, owner: this.props.userId})
+        this.props.createStream({...formValues, owner: this.props.userId});
     }
 
     render() {
@@ -22,4 +23,8 @@ class StreamCreate extends React.Component {
     }
 }
 
-export default connect(null, { createStream })(StreamCreate);
+const mapStateToProps = (state, ownProps) => {
+    return { userId: state.auth.id };
+};
+
+export default connect(mapStateToProps, { createStream })(StreamCreate);
