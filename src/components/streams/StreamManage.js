@@ -37,6 +37,18 @@ class StreamManage extends React.Component {
         return <div className="team-card__grid">{cards}</div>
     }
 
+    renderCreateButton() {
+        if (!(this.props.streams.length >= 6)) {
+            return (
+                <div className="cirlce-button-container">
+                    <button onClick={this.toggleCreateModal} className="cirlce-button-container__button">
+                        <div className="button__text">+</div>
+                    </button>
+                </div>
+            );
+        }
+    }
+
     toggleCreateModal = () => {
         this.setState({
             showCreateModal: !this.state.showCreateModal,
@@ -72,11 +84,7 @@ class StreamManage extends React.Component {
                     <h2 className="title">Manage Streams</h2>
                 </div>
                 {this.renderUserStreamList()}
-                <div className="cirlce-button-container">
-                    <button onClick={this.toggleCreateModal} className="cirlce-button-container__button">
-                        <div className="button__text">+</div>
-                    </button>
-                </div>
+                {this.renderCreateButton()}
             </div>
         );
     }

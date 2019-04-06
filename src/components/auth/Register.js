@@ -82,6 +82,10 @@ const validate = (formValues) => {
         errors.passwordConfirmation = 'Please confirm your password.';
     }
 
+    if (formValues.passwordConfirmation !== formValues.password) {
+        errors.passwordConfirmation = 'Passwords must match!';
+    }
+
     return errors;
 }
 
