@@ -1,24 +1,53 @@
 .stream-view {
-    margin-left: 80px;
-    margin-top: 100px;
-    color: white;
+  
 }
 
 .stream-view__main-video-player {
-    position: absolute; 
-    left: 0; 
-    top: 0;
-    min-width: 70%; 
+    width: 70%; 
     min-height: 70%;
     width: auto; 
     height: auto; 
-    z-index: -100;
     background-size: cover;
-    overflow: hidden;
+}
+
+.stream-view__chat {
+    height: 100%;
+    width: 310px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: black;
+    padding: 10px;
+}
+
+.chat__container {
+    padding: 65px;
+    margin-top: 300px;
+    border: 2px solid #36FBCB;
+    border-radius: 50%;
+}
+
+.container__content {
+    color: #36FBCB;
+    font-size: 30px;
+    font-family: 'Exo 2', sans-serif;
+    text-align: center;
 }
 
 .stream-view__meta-data {
-    
+    position: absolute;
+    top: 70px;
+    left: 70px;
+    color: white;
+}
+
+.stream-cards {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(50px, 210px));
+    width: 80%;
+    padding: 15px;
+    grid-gap: 10px;
 }
 
 .side-video-player-container__side-video-player-one {
@@ -60,4 +89,11 @@
 
 .stream-view__description {
     margin-bottom: 100px;
+}
+
+.stream-view__team-title {
+    color: #36FBCB;
+    font-size: 30px;
+    font-family: 'Exo 2', sans-serif;
+    margin-left: 20px;
 }

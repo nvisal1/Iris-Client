@@ -2,6 +2,7 @@ import React from 'react';
 import flv from 'flv.js';
 import { connect } from 'react-redux';
 import { fetchStream } from '../../actions'; 
+import StreamCard from '../StreamCard';
 import './StreamShow.css';
 
 class StreamShow extends React.Component {
@@ -38,6 +39,17 @@ class StreamShow extends React.Component {
         this.player.load();
     }
 
+    renderTeamList() {
+        const cards = this.props.streams.map(stream => {
+            return (
+                <div className="single">
+                    <StreamCard stream={stream}/>
+                </div>
+            );
+        });
+        return <div className="stream-cards">{cards}</div>
+    }
+
     render() {
         if (!this.props.stream) {
             return <div>Loading...</div>
@@ -47,10 +59,19 @@ class StreamShow extends React.Component {
                 <div>
                     <video className="stream-view__main-video-player" preload="none" ref={this.videoRef} controls/>
                 </div>
+                <div className="stream-view__chat">
+                    <div className="chat__container">
+                        <div className="container__content">Chat Coming Soon!</div>
+                    </div>
+                </div>
                 <div className="stream-view__meta-data">
                     <h1 className="stream-view__title">{this.props.stream.title}</h1>
                     <h3 className="stream-view__description">{this.props.stream.description}</h3>
                 </div>
+                <div className="stream-view__team-title">
+                    Team
+                </div>
+                {this.renderTeamList()}
             </div>
 
         );
@@ -58,7 +79,11 @@ class StreamShow extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    return { stream: state.streams[ownProps.match.params.streamId] };
+    console.log(state.streams);
+    return { 
+        stream: state.streams[ownProps.match.params.streamId],
+        streams: Object.values(state.streams)
+    };
 };
 
 export default connect(
