@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const StreamCard = (props) => {
     return (
-        <Link to={`/streams/show/${props.stream.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+        <Link to={`/streams/show/${props.stream._id}`} style={{ textDecoration: 'none', color: 'black' }}>
             <div className="stream-card">
                 <img style={{width:'100%'}}src={props.stream.thumbnail}></img>
                 <div class="stream-card__container">

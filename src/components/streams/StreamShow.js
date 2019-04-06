@@ -1,7 +1,7 @@
 import React from 'react';
 import flv from 'flv.js';
 import { connect } from 'react-redux';
-import { fetchStream } from '../../actions'; 
+import { fetchStream, fetchUserStreams } from '../../actions'; 
 import StreamCard from '../StreamCard';
 import './StreamShow.css';
 
@@ -12,8 +12,9 @@ class StreamShow extends React.Component {
         this.videoRef = React.createRef();
     }
    
-    componentDidMount() {
-        this.props.fetchStream(this.props.match.params.streamId);
+    async componentDidMount() {
+        await this.props.fetchStream(this.props.match.params.streamId);
+        this.props.fetchUserStreams(this.props.stream.owner);
         this.buildPlayer();
     }
 
@@ -41,13 +42,25 @@ class StreamShow extends React.Component {
 
     renderTeamList() {
         const cards = this.props.streams.map(stream => {
+            console.log(stream)
+            if (stream._id !== this.props.match.params.streamId) {
+                return (
+                    <div className="single">
+                        <StreamCard stream={stream}/>
+                    </div>
+                );
+            }
+        });
+        if (this.props.streams.length > 1) {
             return (
-                <div className="single">
-                    <StreamCard stream={stream}/>
+                <div>
+                    <div className="stream-view__team-title">
+                        Team
+                    </div>
+                    <div className="stream-cards">{cards}</div>
                 </div>
             );
-        });
-        return <div className="stream-cards">{cards}</div>
+        }
     }
 
     render() {
@@ -68,9 +81,7 @@ class StreamShow extends React.Component {
                     <h1 className="stream-view__title">{this.props.stream.title}</h1>
                     <h3 className="stream-view__description">{this.props.stream.description}</h3>
                 </div>
-                <div className="stream-view__team-title">
-                    Team
-                </div>
+                
                 {this.renderTeamList()}
             </div>
 
@@ -79,7 +90,6 @@ class StreamShow extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(state.streams);
     return { 
         stream: state.streams[ownProps.match.params.streamId],
         streams: Object.values(state.streams)
@@ -88,5 +98,5 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(
     mapStateToProps, 
-    {fetchStream}
+    {fetchStream, fetchUserStreams}
 )(StreamShow);

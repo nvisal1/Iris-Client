@@ -1,24 +1,30 @@
 .stream-view {
-  
+    display: grid | inline-grid;
 }
 
 .stream-view__main-video-player {
-    width: 70%; 
+   
+    min-width: 70%; 
     min-height: 70%;
     width: auto; 
     height: auto; 
+    z-index: -100;
     background-size: cover;
+    overflow: hidden;
 }
 
 .stream-view__chat {
     height: 100%;
-    width: 310px;
     background-color: white;
     position: absolute;
     top: 0;
     right: 0;
     color: black;
     padding: 10px;
+    grid-column-start: 1;
+    grid-column-end: span col4-start;
+    grid-row-start: 2;
+    grid-row-end: span 2;
 }
 
 .chat__container {
@@ -26,6 +32,7 @@
     margin-top: 300px;
     border: 2px solid #36FBCB;
     border-radius: 50%;
+    
 }
 
 .container__content {

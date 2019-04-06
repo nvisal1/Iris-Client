@@ -37,15 +37,11 @@ class StreamList extends React.Component {
         return (
             <div>
                 <div className="gradient">
-                    <h2 className="title">All Teams</h2>
+                    <h2 className="title">All Streams</h2>
                 </div>
                 <div className="grid-container">
                     {this.renderTeamList()}
                 </div>
-                <div className="gradient">
-                    <h2 className="title">All Streams</h2>
-                </div>
-                {this.renderStreamList()}
             </div>
         );
     }
