@@ -10,10 +10,10 @@ class StreamShow extends React.Component {
     constructor(props) {
         super(props);
         this.videoRef = React.createRef();
+        this.props.getUser();
     }
    
     async componentDidMount() {
-        await this.props.getUser();
         await this.props.fetchStream(this.props.match.params.streamId);
         this.props.fetchUserStreams(this.props.stream.owner);
         this.buildPlayer();
@@ -43,12 +43,14 @@ class StreamShow extends React.Component {
 
     renderTeamList() {
         const cards = this.props.streams.map(stream => {
-            if (stream._id !== this.props.match.params.streamId && stream.owner === this.props.userId) {
-                return (
-                    <div className="single">
-                        <StreamCard stream={stream}/>
-                    </div>
-                );
+            if(stream.owner === this.props.stream.owner) {
+                if (stream._id !== this.props.match.params.streamId) {
+                    return (
+                        <div className="single">
+                            <StreamCard stream={stream}/>
+                        </div>
+                    );
+                }
             }
         });
         return (
@@ -82,7 +84,6 @@ class StreamShow extends React.Component {
                 
                 {this.renderTeamList()}
             </div>
-
         );
     }
 }
