@@ -4,6 +4,8 @@ input, label {
 
 .form-element__error {
     color: red;
+    font-size: 15px;
+    font-family: 'Exo 2', sans-serif;
 }
 
 .form-element__input-label {

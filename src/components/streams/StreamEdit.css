@@ -19,5 +19,7 @@
 }
 
 .content__key {
+    font-size: 15px;
+    font-family: 'Exo 2', sans-serif;
     color: purple;
 }
