@@ -56,8 +56,8 @@ class Header extends React.Component {
                             <input 
                                 className="search-form__search-input"
                                 name="search"
-                                placeholder="Search
-                            "></input>
+                                placeholder="Search">
+                            </input>
                         </form>
                         {this.renderLogin()}
                     </nav>
@@ -68,7 +68,13 @@ class Header extends React.Component {
                 <header>
                     <nav>
                         <Link className="logo" to="/">IRIS</Link>
-                        <input placeholder="Search"></input>
+                        <form className="search-form" onSubmit={this.onSearchSubmit}>
+                            <input 
+                                className="search-form__search-input"
+                                name="search"
+                                placeholder="Search">
+                            </input>
+                        </form>
                         {this.renderLogout()}
                     </nav>
                 </header>
