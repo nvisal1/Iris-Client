@@ -23,16 +23,18 @@ class StreamManage extends React.Component {
 
     renderUserStreamList() {
         const cards = this.props.streams.map(stream => {
-            return (
-                <div className="single">
-                    <TeamCard 
-                        stream={stream}
-                        isUser={true}
-                        toggleEditModal={this.toggleEditModal}
-                        toggleDeleteModal={this.toggleDeleteModal}
-                    />
-                </div>
-            );
+            if (stream.owner === this.props.userId) {
+                return (
+                    <div className="single">
+                        <TeamCard 
+                            stream={stream}
+                            isUser={true}
+                            toggleEditModal={this.toggleEditModal}
+                            toggleDeleteModal={this.toggleDeleteModal}
+                        />
+                    </div>
+                );
+            }
         });
         return <div className="team-card__grid">{cards}</div>
     }

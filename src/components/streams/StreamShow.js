@@ -1,7 +1,7 @@
 import React from 'react';
 import flv from 'flv.js';
 import { connect } from 'react-redux';
-import { fetchStream, fetchUserStreams } from '../../actions'; 
+import { fetchStream, fetchUserStreams, getUser } from '../../actions'; 
 import StreamCard from '../StreamCard';
 import './StreamShow.css';
 
@@ -13,6 +13,7 @@ class StreamShow extends React.Component {
     }
    
     async componentDidMount() {
+        await this.props.getUser();
         await this.props.fetchStream(this.props.match.params.streamId);
         this.props.fetchUserStreams(this.props.stream.owner);
         this.buildPlayer();
@@ -42,8 +43,7 @@ class StreamShow extends React.Component {
 
     renderTeamList() {
         const cards = this.props.streams.map(stream => {
-            console.log(stream)
-            if (stream._id !== this.props.match.params.streamId) {
+            if (stream._id !== this.props.match.params.streamId && stream.owner === this.props.userId) {
                 return (
                     <div className="single">
                         <StreamCard stream={stream}/>
@@ -51,16 +51,14 @@ class StreamShow extends React.Component {
                 );
             }
         });
-        if (this.props.streams.length > 1) {
-            return (
-                <div>
-                    <div className="stream-view__team-title">
-                        Team
-                    </div>
-                    <div className="stream-cards">{cards}</div>
+        return (
+            <div>
+                <div className="stream-view__team-title">
+                    Team
                 </div>
-            );
-        }
+                <div className="stream-cards">{cards}</div>
+            </div>
+        );
     }
 
     render() {
@@ -92,11 +90,12 @@ class StreamShow extends React.Component {
 const mapStateToProps = (state, ownProps) => {
     return { 
         stream: state.streams[ownProps.match.params.streamId],
-        streams: Object.values(state.streams)
+        streams: Object.values(state.streams),
+        userId: state.auth.id
     };
 };
 
 export default connect(
     mapStateToProps, 
-    {fetchStream, fetchUserStreams}
+    {fetchStream, fetchUserStreams, getUser}
 )(StreamShow);
