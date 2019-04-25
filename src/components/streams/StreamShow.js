@@ -10,13 +10,12 @@ class StreamShow extends React.Component {
     constructor(props) {
         super(props);
         this.videoRef = React.createRef();
-        this.props.getUser();
     }
    
     async componentDidMount() {
         await this.props.getUser();
         await this.props.fetchStream(this.props.match.params.streamId);
-        this.props.fetchUserStreams(this.props.stream.owner);
+        await this.props.fetchUserStreams(this.props.stream.owner);
         this.buildPlayer();
     }
 
