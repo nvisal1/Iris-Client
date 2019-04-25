@@ -18,12 +18,14 @@
     font-size: 64px;
     height: 70px;
     width: 70px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .cirlce-button-container__button:hover {
     color: #36FBCB;
     cursor: pointer;
     background-color:white;
+    box-shadow: none;
   }
 
 .button__text {
@@ -40,6 +42,7 @@
     color: #36FBCB;
     font-size: 18px;
     font-family: 'Exo 2', sans-serif;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .notice__server-name {

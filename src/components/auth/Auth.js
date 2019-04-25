@@ -4,6 +4,7 @@ import Login from './Login';
 import Register from './Register';
 import { register, signIn} from '../../actions/index';
 import './Auth.css'
+import ThankYou from './ThankYou';
 
 class Auth extends React.Component {
 
@@ -20,6 +21,9 @@ class Auth extends React.Component {
             return (
                 <div className="login">
                     <div className="login-background-overlay"></div>
+                    <div className="login__thankyou">
+                        <ThankYou></ThankYou>
+                    </div>
                     <Login onSubmit={this.onSubmitLogin}></Login>
                 </div>
             );
@@ -27,6 +31,9 @@ class Auth extends React.Component {
             return (
                 <div className="login">
                     <div className="login-background-overlay"></div>
+                    <div className="login__thankyou">
+                        <ThankYou></ThankYou>
+                    </div>
                     <Register onSubmit={this.onSubmitRegister}></Register>
                 </div>
             );
