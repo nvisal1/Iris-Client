@@ -16,7 +16,7 @@
 .stream-view__chat {
     height: 100%;
     background-color: white;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     color: black;
