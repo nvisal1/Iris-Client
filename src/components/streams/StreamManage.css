@@ -30,3 +30,25 @@
     margin-bottom: 10px;
 }
 
+.notice {
+    position: absolute;
+    top: 110px;
+    right: 80px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    color: #36FBCB;
+    font-size: 18px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.notice__server-name {
+    color: purple;
+}
+
+.notice__fun-text {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+}
+

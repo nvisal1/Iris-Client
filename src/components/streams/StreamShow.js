@@ -13,7 +13,6 @@ class StreamShow extends React.Component {
     }
    
     async componentDidMount() {
-        await this.props.getUser();
         await this.props.fetchStream(this.props.match.params.streamId);
         await this.props.fetchUserStreams(this.props.stream.owner);
         this.buildPlayer();
@@ -91,11 +90,10 @@ const mapStateToProps = (state, ownProps) => {
     return { 
         stream: state.streams[ownProps.match.params.streamId],
         streams: Object.values(state.streams),
-        userId: state.auth.id
     };
 };
 
 export default connect(
     mapStateToProps, 
-    {fetchStream, fetchUserStreams, getUser}
+    {fetchStream, fetchUserStreams}
 )(StreamShow);

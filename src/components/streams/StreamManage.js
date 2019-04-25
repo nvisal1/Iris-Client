@@ -85,6 +85,10 @@ class StreamManage extends React.Component {
                 <div className="gradient">
                     <h2 className="title">Manage Streams</h2>
                 </div>
+                <div className="notice">
+                    Our sever can be found at <span className="notice__server-name">rtmp://23.99.248.200/live</span>
+                    <div className="notice__fun-text">Happy Streaming :)</div>
+                </div>
                 {this.renderUserStreamList()}
                 {this.renderCreateButton()}
             </div>
