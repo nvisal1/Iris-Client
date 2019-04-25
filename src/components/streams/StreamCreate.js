@@ -7,7 +7,6 @@ import './StreamCreate.css'
 class StreamCreate extends React.Component {
 
     onSubmit = formValues => {
-        console.log({...formValues, owner: this.props.userId})
         this.props.createStream({...formValues, owner: this.props.userId});
     }
 

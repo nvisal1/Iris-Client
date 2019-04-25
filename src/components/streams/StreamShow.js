@@ -14,6 +14,7 @@ class StreamShow extends React.Component {
     }
    
     async componentDidMount() {
+        await this.props.getUser();
         await this.props.fetchStream(this.props.match.params.streamId);
         this.props.fetchUserStreams(this.props.stream.owner);
         this.buildPlayer();
@@ -28,7 +29,6 @@ class StreamShow extends React.Component {
     }
 
     buildPlayer() {
-        console.log(this.props);
         if(this.player || !this.props.stream) {
             return;
         }

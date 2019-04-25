@@ -72,7 +72,6 @@ export const searchStreams = (query) => {
 export const fetchUserStreams = (userId) => {
     return async (dispatch) => {
         const response = await streams.get(`user/${userId}/streams`);
-        console.log(response);
         dispatch({ type: FETCH_USER_STREAMS, payload: response.data });
     };
 }
@@ -81,7 +80,6 @@ export const register = (user) => {
     return async (dispatch) => {
         const response = await streams.post('/users', user);
         dispatch({ type: REGISTER, payload: response.data.token });
-        console.log(response);
         if (response.status === 200) {
             history.push('/');
         }

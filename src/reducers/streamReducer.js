@@ -27,9 +27,7 @@ export default (state = {}, action) => {
         case EDIT_STREAM: 
             return { ...state };
         case FETCH_USER_STREAMS: 
-            console.log(action.payload);
             state = {};
-
             return { ...state, ..._.mapKeys(action.payload, '_id')};
         default:
             return state;
