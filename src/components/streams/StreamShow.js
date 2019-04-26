@@ -33,7 +33,7 @@ class StreamShow extends React.Component {
 
         this.player = flv.createPlayer({
             type: 'flv',
-            url: `https://iris-ingress.centralus.cloudapp.azure.com/rtmp/live/${this.props.stream.streamKey}.flv`
+            url: `http://52.230.222.126:8000/live/${this.props.stream.streamKey}.flv`
         });
         this.player.attachMediaElement(this.videoRef.current);
         this.player.load();
