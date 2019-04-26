@@ -2,6 +2,6 @@ import axios from 'axios';
 import { getToken } from '../services/tokenService';
 
 export default axios.create({
-    baseURL: 'http://40.122.30.104:3001',
+    baseURL: 'https://iris-ingress.centralus.cloudapp.azure.com',
     headers: {'Authorization': 'Bearer ' + localStorage.getItem('TOKEN')},
 })
