@@ -4,7 +4,7 @@
 
 .team-card__grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
     margin: auto;
     width: 80%;
     padding: 15px;

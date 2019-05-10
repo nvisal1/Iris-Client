@@ -8,7 +8,6 @@ button:focus {
 
 .team-card {
   position: relative;
-  width: 350px;
   transition: transform .2s;
 }
 
@@ -22,8 +21,8 @@ button:focus {
   position: absolute;
   bottom: 3px;
   left: 0;
-  width: 100%;
   height: 30%;
+  width: 100%;
   display: none;
   color: #FFF;
   display: block;
